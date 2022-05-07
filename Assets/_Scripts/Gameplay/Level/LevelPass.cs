@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelPass : MonoBehaviour
 {
-    [SerializeField] Canvas 通关提示;
+    [SerializeField] Text 通关提示;
     [SerializeField] UnityEvent OnFinish;
     private void OnTriggerEnter2D(Collider2D col)
     {

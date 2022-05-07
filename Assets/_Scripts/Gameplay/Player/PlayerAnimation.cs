@@ -16,10 +16,9 @@ public class PlayerAnimation : MonoBehaviour
     private void Update()
     {
         var velocity = mRigidbody2D.velocity;
-        var xParameter = 0.1f * Mathf.Abs(velocity.x) / mPlayerMovement.HorizontalMovementSpeed;
-        var yParameter = 0.3f * velocity.y / mPlayerMovement.jumpForce;
+        var xParameter = 0.2f * Mathf.Abs(velocity.x) / mPlayerMovement.HorizontalMovementSpeed;
         if(Mathf.Abs(velocity.y) > 0.1) xParameter = 0;
-        var scale = new Vector3(1f + xParameter, 1f + yParameter, 1f);
+        var scale = new Vector3(1f + xParameter, 1f, 1f);
 
         transform.localScale = scale;
     }
