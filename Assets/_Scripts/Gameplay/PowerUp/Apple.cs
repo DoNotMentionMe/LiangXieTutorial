@@ -7,10 +7,18 @@ public class Apple : MonoBehaviour
 {
     [SerializeField] UnityEvent OnGet;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private AudioSource getAudio;
+
+    private void Awake()
+    {
+        getAudio = GetComponentInChildren<AudioSource>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
     {
         OnGet?.Invoke();
-        StartCoroutine(Wait(0.5f, () => Destroy(gameObject)));
+        getAudio.Play();
+        StartCoroutine(Wait(getAudio.clip.length, () => Destroy(gameObject)));
     }
 
     IEnumerator Wait(float time, Action action)

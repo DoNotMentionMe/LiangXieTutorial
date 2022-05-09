@@ -7,8 +7,10 @@ public class Trigger2D : MonoBehaviour
 {
     public bool Triggered = false;
     [SerializeField] LayerMask layers;
-    [SerializeField] UnityEvent OnTriggerEnter = new UnityEvent();
-    [SerializeField] UnityEvent OnTriggerExit = new UnityEvent();
+    public UnityEvent OnTriggerEnter = new UnityEvent();
+    public UnityEvent OnTriggerExit = new UnityEvent();
+    public UnityEvent<Collider2D> OnTriggerEnterWithCollider = new UnityEvent<Collider2D>();
+    public UnityEvent<Collider2D> OnTriggerExitWithCollider = new UnityEvent<Collider2D>();
 
     private HashSet<Collider2D> mCollider2Ds = new HashSet<Collider2D>();
 
@@ -22,6 +24,7 @@ public class Trigger2D : MonoBehaviour
         {
             Triggered = true;
             OnTriggerEnter?.Invoke();
+            OnTriggerEnterWithCollider?.Invoke(col);
         }
     }
 
@@ -35,6 +38,7 @@ public class Trigger2D : MonoBehaviour
         {
             Triggered = false;
             OnTriggerExit?.Invoke();
+            OnTriggerEnterWithCollider?.Invoke(col);
         }
     }
 }
