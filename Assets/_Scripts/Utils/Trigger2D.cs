@@ -38,7 +38,7 @@ public class Trigger2D : MonoBehaviour
         {
             Triggered = false;
             OnTriggerExit?.Invoke();
-            OnTriggerEnterWithCollider?.Invoke(col);
+            OnTriggerExitWithCollider?.Invoke(col);
         }
     }
 }

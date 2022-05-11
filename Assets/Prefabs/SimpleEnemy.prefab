@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 2557278606697070039}
   - component: {fileID: 2557278606697070036}
   - component: {fileID: 2557278606697070037}
+  - component: {fileID: 3727315168194278227}
   m_Layer: 3
   m_Name: SimpleEnemy
   m_TagString: Untagged
@@ -534,6 +535,18 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3727315168194278227}
+        m_TargetAssemblyTypeName: AddRemainSeconds, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2557278606697070058}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -546,3 +559,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3727315168194278227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557278606697070058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71cfb2d89139e3a469ec18a25dff3a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
