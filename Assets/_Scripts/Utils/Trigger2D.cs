@@ -14,6 +14,12 @@ public class Trigger2D : MonoBehaviour
 
     private HashSet<Collider2D> mCollider2Ds = new HashSet<Collider2D>();
 
+    public void Reset()
+    {
+        Triggered = false;
+        mCollider2Ds.Clear();
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(!LayerMaskUtility.Contains(layers, col.gameObject.layer)) return;

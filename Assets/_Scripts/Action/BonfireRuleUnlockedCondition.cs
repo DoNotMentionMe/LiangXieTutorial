@@ -7,9 +7,9 @@ namespace HYH
 {
     public class BonfireRuleUnlockedCondition : MonoBehaviour
     {
-        public UnityEvent IsUnlocked = new UnityEvent();
-
         [SerializeField] string Key;
+
+        public UnityEvent IsUnlocked = new UnityEvent();
 
         public void Execute()
         {

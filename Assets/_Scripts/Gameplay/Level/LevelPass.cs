@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class LevelPass : MonoBehaviour
 {
     [SerializeField] bool ResetPlayer2OriginPoint = false;
+    [SerializeField] Text 通关提示;
     [SerializeField] UnityEvent OnLevelPass;
     [SerializeField] UnityEvent OnLevelPassDeleyFinish;
-    [SerializeField] Text 通关提示;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -23,10 +23,6 @@ public class LevelPass : MonoBehaviour
         {
             ResetPlayerPos();
         }
-        else
-        {
-            LoadCurrentScene();
-        }
 
         通关提示.enabled = false;
         OnLevelPassDeleyFinish?.Invoke();
@@ -34,7 +30,10 @@ public class LevelPass : MonoBehaviour
 
     private void ResetPlayerPos()
     {
-        GameObject.FindWithTag("Player").transform.position = Vector3.zero;
+        var player = GameObject.FindWithTag("Player");
+        player.transform.position = Vector2.zero;
+        var Trigger2D = player.transform.Find("GroundCheck").GetComponent<Trigger2D>();
+        Trigger2D.Reset();
     }
 
     private void LoadCurrentScene()

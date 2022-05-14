@@ -36,7 +36,9 @@ namespace HYH
             get => PlayerPrefs.GetInt(nameof(HasContinue), 0) == 1;
             set => PlayerPrefs.SetInt(nameof(HasContinue), value ? 1 : 0);
         }
-
+        /// <summary>
+        /// 重置数据
+        /// </summary>
         public static void ResetGameData()
         {
             IsGameOver = false;

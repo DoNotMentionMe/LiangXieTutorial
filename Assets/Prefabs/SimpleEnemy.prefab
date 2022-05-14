@@ -518,8 +518,8 @@ MonoBehaviour:
   ForwardCheck: {fileID: 2557278605732181391}
   FallCheck: {fileID: 2557278606230813839}
   AttackCheck: {fileID: 2557278604889253588}
-  HitterVeclocityX: 7
-  HitterVeclocityY: 15
+  HitterVeclocityX: 8
+  HitterVeclocityY: 8
 --- !u!114 &2557278606697070037
 MonoBehaviour:
   m_ObjectHideFlags: 0

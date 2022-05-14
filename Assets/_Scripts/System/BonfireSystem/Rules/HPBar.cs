@@ -1,69 +1,29 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using HYH;
 using UnityEngine;
 
-public class HPBar : IBonfireRule
+namespace HYH
 {
-    Lazy<IPlayerModel> mPlayerModel = new Lazy<IPlayerModel>(() => ApplePlatformer2D.Interface.GetModel<IPlayerModel>());
-
-    public int NeedSeconds { get; } = 30;
-    public string Key { get; } = nameof(HPBar);
-    public bool Unlocked { get; private set; }
-
-
-    public void OnBonfireGUI()
+    public class HPBar : AbstractBonfireRule
     {
-        if(!Unlocked)
+        Lazy<IPlayerModel> mPlayerModel = new Lazy<IPlayerModel>(() => ApplePlatformer2D.Interface.GetModel<IPlayerModel>());
+
+        public override int NeedSeconds { get; } = 30;
+        public override string Key { get; } = nameof(HPBar);
+        public override string DisplayName { get; protected set; } = "血量条";
+
+        protected override void OnUnlock()
         {
-            GUILayout.BeginHorizontal();
-
-            GUILayout.Label("血量条", Styles.Label.Value);
-            GUILayout.Label("价格:" + NeedSeconds, Styles.Label.Value);
-            GUILayout.FlexibleSpace();
-            if(Bonfire.RemainSeconds > NeedSeconds)
-            {
-                if(GUILayout.Button("解锁", Styles.Button.Value))
-                {
-                    Bonfire.RemainSeconds -= NeedSeconds;
-                    Unlocked = true;
-                }
-            }
-            else
-            {
-                GUILayout.Label("寿命不足", Styles.Label.Value);
-            }
-
-            GUILayout.EndHorizontal();
+            mPlayerModel.Value.HP ++;
+            mPlayerModel.Value.MaxHP ++;
         }
-    }
 
-    public void OnTopRightGUI()
-    {
-        if(Unlocked)
+        public override void OnTopRightGUI()
         {
-            GUILayout.Label($"血量:{mPlayerModel.Value.HP}/{mPlayerModel.Value.MaxHP}", Styles.Label.Value);
+            if(Unlocked)
+            {
+                GUILayout.Label($"血量:{mPlayerModel.Value.HP}/{mPlayerModel.Value.MaxHP}", Styles.Label.Value);
+            }
         }
-    }
-    public void OnGUI()
-    {
-        
-    }
 
-    public void Reset()
-    {
-        Unlocked = false;
-    }
-
-    public void Save()
-    {
-        PlayerPrefs.SetInt(nameof(HPBar), Unlocked ? 1 : 0);
-    }
-
-    public IBonfireRule Load()
-    {
-        Unlocked = PlayerPrefs.GetInt(nameof(HPBar), 0) == 1;
-        return this;
     }
 }

@@ -32,6 +32,8 @@ public class Bonfire : MonoBehaviour
     {
         if(ApplePlatformer2D.IsGameOver) return;
 
+        RemainSeconds -= Time.deltaTime;
+
         if(RemainSeconds <= 0)
         {
             ApplePlatformer2D.IsGameOver = true;
@@ -53,7 +55,6 @@ public class Bonfire : MonoBehaviour
             }
         }
 
-        RemainSeconds -= Time.deltaTime;
     }
 
     private void OnGUI()
@@ -82,6 +83,7 @@ public class Bonfire : MonoBehaviour
             }
         }
 
+        #region  游戏结束界面
         if(ApplePlatformer2D.IsGameOver)
         {
             GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height));
@@ -102,7 +104,7 @@ public class Bonfire : MonoBehaviour
                 {
                     ApplePlatformer2D.HasContinue = true;
                     ApplePlatformer2D.ResetGameData();
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    SceneManager.LoadScene("Game");
                 }
 
                 if(GUILayout.Button("回到主页", Styles.BigButton.Value))
@@ -117,6 +119,7 @@ public class Bonfire : MonoBehaviour
             GUILayout.FlexibleSpace();
             GUILayout.EndArea();
         }
+        #endregion
     }
 
     

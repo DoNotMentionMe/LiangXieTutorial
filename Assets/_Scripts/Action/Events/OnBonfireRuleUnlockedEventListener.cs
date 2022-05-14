@@ -6,6 +6,9 @@ using UnityEngine.Events;
 
 namespace HYH
 {
+    /// <summary>
+    /// Key规则解锁的监听器
+    /// </summary>
     public class OnBonfireRuleUnlockedEventListener : MonoBehaviour
     {
         [SerializeField] string Key;

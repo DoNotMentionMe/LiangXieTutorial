@@ -4,8 +4,17 @@ using UnityEngine;
 
 public interface IBonfireRule
 {
+    /// <summary>
+    /// 解锁需要的寿命
+    /// </summary>
     int NeedSeconds { get; }
+    /// <summary>
+    /// 区别特定规则的标志
+    /// </summary>
     string Key { get; }
+    /// <summary>
+    /// 是否已解锁，通常存档只需要知道此项
+    /// </summary>
     bool Unlocked { get; }
     /// <summary>
     /// 重置规则
@@ -20,7 +29,9 @@ public interface IBonfireRule
     /// </summary>
     void OnTopRightGUI();
     void OnGUI();
-    
+    /// <summary>
+    /// 存档功能
+    /// </summary>
     void Save();
     IBonfireRule Load();
 }

@@ -16,7 +16,7 @@ namespace HYH
 
             var saveSystem = ApplePlatformer2D.Interface.GetSystem<ISaveSystem>();
 
-            if(saveSystem.HasSaveKey(saveKey))
+            if(saveSystem.HasSavedKey(saveKey))
             {
                 gameObject.SetActive(false);
             }
@@ -28,7 +28,7 @@ namespace HYH
             var objName = name;
 
             var saveKey = sceneName + objName;
-            ApplePlatformer2D.Interface.GetSystem<ISaveSystem>().AddSaveKey(saveKey);
+            ApplePlatformer2D.Interface.GetSystem<ISaveSystem>().AddSavedKey(saveKey);
         }
     }
     

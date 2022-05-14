@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 381841792673705484}
   - component: {fileID: 381841792673705475}
   - component: {fileID: 381841792673705474}
-  - component: {fileID: 381841792673705473}
+  - component: {fileID: 8944300989877116175}
   m_Layer: 0
   m_Name: DeadZone
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 381841792673705472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.83, y: -8.54, z: 0}
-  m_LocalScale: {x: 33.578453, y: 1, z: 1}
+  m_LocalScale: {x: 60.345432, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &381841792673705473
+--- !u!114 &8944300989877116175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,6 +143,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 381841792673705472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ce332b09feeac43ac96aba331f58d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 75da05d6b0e2f754d90064c043af37b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

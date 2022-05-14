@@ -8,8 +8,8 @@ namespace HYH
 {
     public interface ISaveSystem : ISystem
     {
-        bool HasSaveKey(string key);
-        void AddSaveKey(string key);
+        bool HasSavedKey(string key);
+        void AddSavedKey(string key);
 
         void Save();
 
@@ -27,12 +27,12 @@ namespace HYH
 
         HashSet<string> mSavedKeys = new HashSet<string>();
 
-        public bool HasSaveKey(string key)
+        public bool HasSavedKey(string key)
         {
             return mSavedKeys.Contains(key);
         }
 
-        public void AddSaveKey(string key)
+        public void AddSavedKey(string key)
         {
             mSavedKeys.Add(key);
         }
