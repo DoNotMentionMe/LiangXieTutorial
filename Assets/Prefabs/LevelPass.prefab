@@ -125,7 +125,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6210\u529F\u901A\u5173\n"
+  m_Text: "\u7B2C\u4E94\u5173\u5B8C\u6210"
 --- !u!1 &4834213656268016363
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +139,8 @@ GameObject:
   - component: {fileID: 4834213656268016362}
   - component: {fileID: 4834213656268016367}
   - component: {fileID: 151607725141139215}
-  m_Layer: 0
+  - component: {fileID: 1462437168}
+  m_Layer: 8
   m_Name: LevelPass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,6 +271,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1462437168}
+        m_TargetAssemblyTypeName: HYH.SaveHideState, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnLevelPassDeleyFinish:
     m_PersistentCalls:
       m_Calls:
@@ -298,6 +311,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: Game
+--- !u!114 &1462437168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834213656268016363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2de65e6d01d354eaa3e3907c8c49b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SavedKey: GameLevel5Controller
 --- !u!1 &4834213657121581712
 GameObject:
   m_ObjectHideFlags: 0

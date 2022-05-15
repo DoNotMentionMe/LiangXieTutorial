@@ -26,6 +26,7 @@ namespace HYH
                 {
                     if(GUILayout.Button("解锁", Styles.Button.Value))
                     {
+                        AudioSystem.PlayerUIFeedback();
                         Bonfire.RemainSeconds -= NeedSeconds;
                         OnUnlock();
                         Unlocked = true;

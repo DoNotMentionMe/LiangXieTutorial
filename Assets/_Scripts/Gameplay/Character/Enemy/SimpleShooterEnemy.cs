@@ -70,7 +70,7 @@ public class SimpleShooterEnemy : CharacterController
         ShooterArea.OnTriggerEnter.AddListener(() =>
         {
             state = States.Shoot;
-            mPreviousShootTime = Time.time;
+            mPreviousShootTime = Time.time - 0.7f;
             CharacterMovement.enabled = false;
         });
 

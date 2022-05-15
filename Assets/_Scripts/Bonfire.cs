@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using HYH;
+using QFramework;
 
 public class Bonfire : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class Bonfire : MonoBehaviour
             {
                 mOpenBonfireUI = true;
                 ApplePlatformer2D.OnOpenBonfireUI.Trigger();
+                AudioSystem.PlayerUIFeedback();
             }
         }
         else if(mOpenBonfireUI)
@@ -52,6 +54,7 @@ public class Bonfire : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.W))
             {
                 mOpenBonfireUI = false;
+                AudioSystem.PlayerUIFeedback();
             }
         }
 
@@ -104,12 +107,14 @@ public class Bonfire : MonoBehaviour
                 {
                     ApplePlatformer2D.HasContinue = true;
                     ApplePlatformer2D.ResetGameData();
+                    AudioSystem.PlayerUIFeedback();
                     SceneManager.LoadScene("Game");
                 }
 
                 if(GUILayout.Button("回到主页", Styles.BigButton.Value))
                 {
                     ApplePlatformer2D.ResetGameData();
+                    AudioSystem.PlayerUIFeedback();
                     SceneManager.LoadScene("GameStart");
                 }
                 GUILayout.FlexibleSpace();

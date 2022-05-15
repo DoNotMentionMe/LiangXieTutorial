@@ -12,7 +12,10 @@ public class PlayerFootAttack : MonoBehaviour
     private void Awake()
     {
         mRigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
+    private void Start()
+    {
         FootAttackCHeck.OnTriggerEnterWithCollider.AddListener((collider) =>
         {
             collider.GetComponent<CharaterHit>().Hit();

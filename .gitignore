@@ -71,5 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+/[Aa]ssets/Art/Font/Resources/unifont-14.0.03.ttf
+/[Aa]ssets/Art/Font/Resources/unifont-14.0.03.ttf.meta
 /[Aa]ssets/Art/Font/unifont-14.0.03.ttf
 /[Aa]ssets/Art/Font/unifont-14.0.03.ttf.meta

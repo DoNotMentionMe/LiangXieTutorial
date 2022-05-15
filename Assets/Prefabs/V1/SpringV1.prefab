@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody2d: {fileID: 0}
-  vector2: {x: 0, y: 30}
+  vector2: {x: 0, y: 40}
 --- !u!114 &6264458725317758395
 MonoBehaviour:
   m_ObjectHideFlags: 0

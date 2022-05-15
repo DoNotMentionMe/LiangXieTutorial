@@ -20,8 +20,6 @@ namespace HYH
         {
             ApplePlatformer2D.OnOpenBonfireUI.Register(() =>
             {
-                var playerModel = ApplePlatformer2D.Interface.GetModel<IPlayerModel>();
-                playerModel.HP = playerModel.MaxHP;
                 OnOpenBonfireUI?.Invoke();
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
