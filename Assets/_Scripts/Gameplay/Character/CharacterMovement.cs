@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] float HorizontalMovementSpeed = 3;
+    public float HorizontalMovementSpeed = 3;
 
     private Rigidbody2D mRigidbody2D;
 

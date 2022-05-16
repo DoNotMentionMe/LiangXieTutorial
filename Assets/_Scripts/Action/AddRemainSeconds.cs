@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddRemainSeconds : MonoBehaviour
+namespace HYH
 {
-    public void Execute(int seconds)
+    public class AddRemainSeconds : MonoBehaviour
     {
-        Bonfire.RemainSeconds += seconds;
+        public void Execute(int seconds)
+        {
+            Bonfire.RemainSeconds += seconds;
+        }
     }
 }

@@ -20,21 +20,23 @@ namespace HYH
             Rules.Add(new MaxHPPlus1());
             Rules.Add(new BonfireOpenUIRebornEnemy());
             Rules.Add(new BonfireOpenRecoverHP());
+            Rules.Add(new DoubleJumpRule());
             Rules.Add(new Level1());
             Rules.Add(new Level2());
             Rules.Add(new Level3());
             Rules.Add(new Level4());
             Rules.Add(new Level5());
             Rules.Add(new Level6());
+            Rules.Add(new Level7());
         }
 
         public List<IBonfireRule> Rules { get; } = new List<IBonfireRule>();
 
         public IBonfireRule GetRuleByKey(string key)
         {
-            foreach(var bonfireRule in Rules)
+            foreach (var bonfireRule in Rules)
             {
-                if(bonfireRule.Key == key)
+                if (bonfireRule.Key == key)
                 {
                     return bonfireRule;
                 }

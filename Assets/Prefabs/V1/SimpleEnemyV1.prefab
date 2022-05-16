@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 2557278606697070037}
   - component: {fileID: 3727315168194278227}
   m_Layer: 3
-  m_Name: SimpleEnemy
+  m_Name: SimpleEnemyV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
