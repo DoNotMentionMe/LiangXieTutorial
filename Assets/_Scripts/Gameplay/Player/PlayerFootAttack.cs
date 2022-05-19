@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerFootAttack : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerFootAttack : MonoBehaviour
     [SerializeField] float JumpSpeed = 5;
 
     private Rigidbody2D mRigidbody2D;
+
+    public UnityEvent OnFootAttack = new UnityEvent();
 
     private void Awake()
     {
@@ -18,8 +21,8 @@ public class PlayerFootAttack : MonoBehaviour
     {
         FootAttackCHeck.OnTriggerEnterWithCollider.AddListener((collider) =>
         {
+            OnFootAttack?.Invoke();
             collider.GetComponent<CharaterHit>().Hit();
-
             mRigidbody2D.velocity = new Vector2(mRigidbody2D.velocity.x, JumpSpeed);
         });
     }

@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6264458725317758384}
   - component: {fileID: 6264458725317758399}
-  - component: {fileID: 6264458725317758397}
   - component: {fileID: 6264458725317758395}
   - component: {fileID: 6264458725317758385}
   - component: {fileID: 6264458725317758386}
   - component: {fileID: 979162176883338560}
+  - component: {fileID: 5807464010809526233}
+  - component: {fileID: 6358593940560398798}
   m_Layer: 0
   m_Name: SpringV1
   m_TagString: Untagged
@@ -90,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6264458725317758397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264458725317758396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03a4a9c3db0c34649bba299687894f67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Rigidbody2d: {fileID: 0}
-  vector2: {x: 0, y: 40}
 --- !u!114 &6264458725317758395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,8 +112,8 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6264458725317758397}
-        m_TargetAssemblyTypeName: HYH.SetVelocity2D, Assembly-CSharp
+      - m_Target: {fileID: 5807464010809526233}
+        m_TargetAssemblyTypeName: HYH.SetPlayerMovementNotJump, Assembly-CSharp
         m_MethodName: Execute
         m_Mode: 1
         m_Arguments:
@@ -152,6 +139,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6264458726636940407}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6358593940560398798}
+        m_TargetAssemblyTypeName: HYH.SetPlayerVelocity2D, Assembly-CSharp
+        m_MethodName: Execute
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -226,6 +225,31 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &5807464010809526233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264458725317758396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838ff5f7752be3e4bb3172c7bc94fd1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6358593940560398798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264458725317758396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79910ee4cb8de1c44a2505bb13976e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 40}
 --- !u!1 &6264458726636940406
 GameObject:
   m_ObjectHideFlags: 0

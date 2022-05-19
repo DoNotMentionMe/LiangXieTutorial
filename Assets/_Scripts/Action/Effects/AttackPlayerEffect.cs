@@ -12,9 +12,14 @@ namespace HYH
         public void Execute()
         {
             var player = GameObject.FindWithTag("Player");
-            player.GetComponent<PlayerHit>().Hit();
+            var playerHit = player.GetComponent<PlayerHit>();
 
-            AttackPhysicsEffect(this.transform, player.transform);
+            if (playerHit.CanHit)
+            {
+                playerHit.Hit();
+                AttackPhysicsEffect(this.transform, player.transform);
+            }
+
         }
 
         void AttackPhysicsEffect(Transform attacker, Transform hitter)

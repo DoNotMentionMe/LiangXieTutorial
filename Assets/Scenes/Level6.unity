@@ -1100,10 +1100,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4834213656268016367, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
       propertyPath: OnLevelPass.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4834213656268016367, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
       propertyPath: OnLevelPass.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1462437167}
+    - target: {fileID: 4834213656268016367, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
+      propertyPath: OnLevelPass.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1462437168}
     - target: {fileID: 4834213656268016367, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
@@ -1111,12 +1115,32 @@ PrefabInstance:
       value: Execute
       objectReference: {fileID: 0}
     - target: {fileID: 4834213656268016367, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
+      propertyPath: OnLevelPass.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Execute
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834213656268016367, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
       propertyPath: OnLevelPass.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HYH.PassBonfireLevelRule, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834213656268016367, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
+      propertyPath: OnLevelPass.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: HYH.LockBonfireRule, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4834213656268016367, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
       propertyPath: OnLevelPass.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834213656268016367, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
+      propertyPath: OnLevelPass.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451938854909478107, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
+      propertyPath: LevelName
+      value: Level6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132673110760074839, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
+      propertyPath: RuleName
+      value: Level6
       objectReference: {fileID: 0}
     - target: {fileID: 9067772271695047899, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
       propertyPath: m_Text
@@ -1124,24 +1148,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
---- !u!1 &1462437167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4834213656268016363, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
+--- !u!114 &1462437167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5451938854909478107, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
   m_PrefabInstance: {fileID: 1462437166}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1462437168
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8505044aa7efeea4bba56544177025f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1462437168 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6132673110760074839, guid: 5d8fedcd4f223b441b233fc492b7170e, type: 3}
+  m_PrefabInstance: {fileID: 1462437166}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462437167}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 367a1b7dc9990bb4589973f3f44c4b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RuleName: Level6
 --- !u!1001 &1623648281
 PrefabInstance:
   m_ObjectHideFlags: 0

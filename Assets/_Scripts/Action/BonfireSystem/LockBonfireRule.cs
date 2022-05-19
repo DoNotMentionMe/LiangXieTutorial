@@ -10,9 +10,11 @@ namespace HYH
 
         public void Execute()
         {
-            var rule = ApplePlatformer2D.Interface.GetSystem<IBonfireSystem>().GetRuleByKey(RuleName);
+            var rule = ApplePlatformer2D.Interface
+                .GetSystem<IBonfireSystem>()
+                .GetRuleByKey(RuleName);
 
-            rule.Reset();
+            rule.Unlocked = false;
         }
     }
 }

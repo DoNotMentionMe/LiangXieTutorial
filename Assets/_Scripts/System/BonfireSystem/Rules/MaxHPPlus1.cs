@@ -1,34 +1,33 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using HYH;
-using UnityEngine;
 
-public class MaxHPPlus1 : AbstractBonfireRule
+namespace HYH
 {
-    public override int NeedSeconds { get; } = 10;
-
-    public override string Key { get; } = nameof(MaxHPPlus1);
-    public override string DisplayName { get; protected set; } = "最大血量+1";
-
-    Lazy<IBonfireRule> mHPBarRule = new Lazy<IBonfireRule>(() => 
-        //在调用mHPBarRule时执行，GetRuleByKey方法只执行一次，将执行结果返回给mHPBarRule.Value
-        ApplePlatformer2D.Interface.GetSystem<IBonfireSystem>().GetRuleByKey(nameof(HPBar))
-    );
-
-    public override void OnBonfireGUI()
+    public class MaxHPPlus1 : AbstractBonfireRule
     {
-        if(mHPBarRule.Value.Unlocked)
+        public override int NeedSeconds { get; set; } = 10;
+
+        public override string Key { get; set; } = nameof(MaxHPPlus1);
+        public override string DisplayName { get; protected set; } = "最大血量+1";
+
+        Lazy<IBonfireRule> mHPBarRule = new Lazy<IBonfireRule>(() =>
+            //在调用mHPBarRule时执行，GetRuleByKey方法只执行一次，将执行结果返回给mHPBarRule.Value
+            ApplePlatformer2D.Interface.GetSystem<IBonfireSystem>().GetRuleByKey(nameof(HPBar))
+        );
+
+        public override void OnBonfireGUI()
         {
-            base.OnBonfireGUI();
+            if (mHPBarRule.Value.Unlocked)
+            {
+                base.OnBonfireGUI();
+            }
         }
-    }
 
-    protected override void OnUnlock()
-    {
-        var playerModel = ApplePlatformer2D.Interface.GetModel<IPlayerModel>();
-        playerModel.HP += 1;
-        playerModel.MaxHP += 1;
-    }
+        protected override void OnUnlock()
+        {
+            var playerModel = ApplePlatformer2D.Interface.GetModel<IPlayerModel>();
+            playerModel.HP += 1;
+            playerModel.MaxHP += 1;
+        }
 
+    }
 }

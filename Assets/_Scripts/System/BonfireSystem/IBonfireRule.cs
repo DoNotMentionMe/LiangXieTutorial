@@ -15,7 +15,8 @@ public interface IBonfireRule
     /// <summary>
     /// 是否已解锁，通常存档只需要知道此项
     /// </summary>
-    bool Unlocked { get; }
+    bool Unlocked { get; set; }
+    void UnLock();
     /// <summary>
     /// 重置规则
     /// </summary>

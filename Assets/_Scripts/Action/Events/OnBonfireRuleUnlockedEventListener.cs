@@ -13,25 +13,35 @@ namespace HYH
     {
         [SerializeField] string Key;
 
+        [SerializeField] List<string> Keys = new List<string>();
+
         public UnityEvent OnUnlock = new UnityEvent();
 
         private void Start()
         {
-            var rule = ApplePlatformer2D.Interface.GetSystem<IBonfireSystem>().GetRuleByKey(Key);
+            Keys.Add(Key);
 
-            if(rule.Unlocked)
+            foreach (var key in Keys)
             {
-                OnUnlock?.Invoke();
+                var rule = ApplePlatformer2D.Interface
+                    .GetSystem<IBonfireSystem>()
+                    .GetRuleByKey(key);
+
+                if (rule.Unlocked)
+                {
+                    OnUnlock?.Invoke();
+                }
             }
 
-            ApplePlatformer2D.OnBonfireRuleUnlocked.Register((key) => 
+
+            ApplePlatformer2D.OnBonfireRuleUnlocked.Register((key) =>
             {
-                if(key == Key)
+                if (Keys.Contains(key))
                 {
                     OnUnlock?.Invoke();
                 }
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
     }
-    
+
 }

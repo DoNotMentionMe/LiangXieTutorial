@@ -13,6 +13,7 @@ public class OnTriggerEnter2DEvent : MonoBehaviour
         Layers,
         TagsAndLayers,
         TagsOrLayers,
+        NotTagAndLayers,
     }
 
     [SerializeField] TriggerType Type = TriggerType.Tags;
@@ -43,7 +44,15 @@ public class OnTriggerEnter2DEvent : MonoBehaviour
         if (Type == TriggerType.TagsAndLayers)
         {
             if (LayerMaskUtility.Contains(Layers, col.gameObject.layer)
-                && Type == TriggerType.Tags || Type == TriggerType.TagsOrLayers)
+                && Tags.Any(tag => col.CompareTag(tag)))
+            {
+                OnEnter?.Invoke();
+            }
+        }
+
+        if (Type == TriggerType.NotTagAndLayers)
+        {
+            if (LayerMaskUtility.Contains(Layers, col.gameObject.layer) && !Tags.Any(tag => col.CompareTag(tag)))
             {
                 OnEnter?.Invoke();
             }

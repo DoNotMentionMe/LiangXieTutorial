@@ -139,7 +139,8 @@ GameObject:
   - component: {fileID: 4834213656268016362}
   - component: {fileID: 4834213656268016367}
   - component: {fileID: 151607725141139215}
-  - component: {fileID: 1462437168}
+  - component: {fileID: 5451938854909478107}
+  - component: {fileID: 6132673110760074839}
   m_Layer: 8
   m_Name: LevelPass
   m_TagString: Untagged
@@ -271,8 +272,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1462437168}
-        m_TargetAssemblyTypeName: HYH.SaveHideState, Assembly-CSharp
+      - m_Target: {fileID: 5451938854909478107}
+        m_TargetAssemblyTypeName: HYH.PassBonfireLevelRule, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6132673110760074839}
+        m_TargetAssemblyTypeName: HYH.LockBonfireRule, Assembly-CSharp
         m_MethodName: Execute
         m_Mode: 1
         m_Arguments:
@@ -311,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: Game
---- !u!114 &1462437168
+--- !u!114 &5451938854909478107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -320,10 +333,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4834213656268016363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2de65e6d01d354eaa3e3907c8c49b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 8505044aa7efeea4bba56544177025f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SavedKey: GameLevel5Controller
+  LevelName: Level1
+--- !u!114 &6132673110760074839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834213656268016363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367a1b7dc9990bb4589973f3f44c4b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RuleName: Level4
 --- !u!1 &4834213657121581712
 GameObject:
   m_ObjectHideFlags: 0

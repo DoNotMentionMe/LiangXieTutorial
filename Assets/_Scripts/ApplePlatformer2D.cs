@@ -17,13 +17,8 @@ namespace HYH
         public static bool IsGameOver
         {
             get => mIsGameOver;
-            set 
+            set
             {
-                if(value)
-                {
-                    HasContinue = false;
-                }
-
                 mIsGameOver = value;
             }
         }
@@ -45,7 +40,8 @@ namespace HYH
 
             Interface.GetModel<IPlayerModel>().HP = 1;
             Interface.GetModel<IPlayerModel>().MaxHP = 1;
-            foreach(var bonfireRule in Interface.GetSystem<IBonfireSystem>().Rules)
+            Interface.GetModel<IPlayerModel>().CurrentAppleCount = 0;
+            foreach (var bonfireRule in Interface.GetSystem<IBonfireSystem>().Rules)
             {
                 bonfireRule.Reset();
             }
@@ -53,6 +49,7 @@ namespace HYH
             Interface.GetSystem<ISaveSystem>().Clear();
 
             Bonfire.RemainSeconds = 100;
+            Bonfire.LiveSeconds = 0;
         }
 
         //Load
@@ -60,10 +57,14 @@ namespace HYH
         {
             Interface.GetModel<IPlayerModel>().HP = PlayerPrefs.GetInt("HP", 1);
             Interface.GetModel<IPlayerModel>().MaxHP = PlayerPrefs.GetInt("MaxHP", 1);
+            Interface.GetModel<IPlayerModel>().CurrentAppleCount = PlayerPrefs.GetInt("CurrentAppleCount", 0);
             Interface.GetSystem<ISaveSystem>().Load();
-            Bonfire.RemainSeconds = PlayerPrefs.GetFloat("RemainSeconds", 100);
+            Bonfire.RemainSeconds = PlayerPrefs.GetFloat("RemainSeconds", 3000);
+            Bonfire.LiveSeconds = PlayerPrefs.GetFloat("LiveSeconds", 0);
 
-            foreach(var bonfireRule in Interface.GetSystem<IBonfireSystem>().Rules)
+            IsGameOver = false;
+
+            foreach (var bonfireRule in Interface.GetSystem<IBonfireSystem>().Rules)
             {
                 bonfireRule.Load();
             }
@@ -73,22 +74,24 @@ namespace HYH
         {
             this.RegisterSystem<IBonfireSystem>(new BonfireSystem());
             this.RegisterSystem<ISaveSystem>(new SaveSystem());
+            this.RegisterSystem<IInputSystem>(new InputSystem());
             this.RegisterModel<IPlayerModel>(new PlayerModel());
+        }
 
-            GlobalMonoEvents.OnApplicationQuitEvent.Register(() =>
+        public static void Save()
+        {
+            PlayerPrefs.SetInt("HP", Interface.GetModel<IPlayerModel>().HP);
+            PlayerPrefs.SetInt("MaxHP", Interface.GetModel<IPlayerModel>().MaxHP);
+            PlayerPrefs.SetInt("CurrentAppleCount", Interface.GetModel<IPlayerModel>().CurrentAppleCount);
+            PlayerPrefs.SetFloat("RemainSeconds", Bonfire.RemainSeconds);
+            PlayerPrefs.SetFloat("LiveSeconds", Bonfire.LiveSeconds);
+
+            foreach (var bonfireRule in Interface.GetSystem<IBonfireSystem>().Rules)
             {
-                //Save
-                PlayerPrefs.SetInt("HP", Interface.GetModel<IPlayerModel>().HP);
-                PlayerPrefs.SetInt("MaxHP", Interface.GetModel<IPlayerModel>().MaxHP);
-                PlayerPrefs.SetFloat("RemainSeconds", Bonfire.RemainSeconds);
+                bonfireRule.Save();
+            }
 
-                foreach(var bonfireRule in Interface.GetSystem<IBonfireSystem>().Rules)
-                {
-                    bonfireRule.Save();
-                }
-
-                Interface.GetSystem<ISaveSystem>().Save();
-            });
+            Interface.GetSystem<ISaveSystem>().Save();
         }
     }
 }

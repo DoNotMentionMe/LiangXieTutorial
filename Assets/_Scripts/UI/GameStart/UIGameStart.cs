@@ -10,7 +10,7 @@ namespace HYH
     {
         private void Start()
         {
-            transform.Find("BttnStart").GetComponent<Button>().onClick.AddListener(() => 
+            transform.Find("BttnStart").GetComponent<Button>().onClick.AddListener(() =>
             {
                 ApplePlatformer2D.ResetGameData();
                 ApplePlatformer2D.HasContinue = true;
@@ -19,9 +19,9 @@ namespace HYH
 
             var BttnContinueButton = transform.Find("BttnContinue").GetComponent<Button>();
 
-            if(ApplePlatformer2D.HasContinue)
+            if (ApplePlatformer2D.HasContinue)
             {
-                BttnContinueButton.onClick.AddListener(() => 
+                BttnContinueButton.onClick.AddListener(() =>
                 {
                     ApplePlatformer2D.ContinueGame();
 
@@ -32,8 +32,11 @@ namespace HYH
             {
                 BttnContinueButton.gameObject.SetActive(false);
             }
-            
+
+            var bttnVersion = transform.Find("BttnVersion").GetComponent<Button>();
+
+            bttnVersion.GetComponentInChildren<Text>().text = "v" + Application.version;
         }
     }
-    
+
 }

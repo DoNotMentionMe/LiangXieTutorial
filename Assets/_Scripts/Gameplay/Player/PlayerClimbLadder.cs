@@ -17,6 +17,8 @@ namespace HYH
 
         private void Awake()
         {
+            var mInputSystem = ApplePlatformer2D.Interface.GetSystem<IInputSystem>();
+
             var playerMovement = GetComponent<PlayerMovement>();
             var rigidbody = GetComponent<Rigidbody2D>();
             var currentGravity = rigidbody.gravityScale;
@@ -29,7 +31,7 @@ namespace HYH
                 })
                 .OnUpdate(() =>
                 {
-                    if (mCanClimb && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D)))
+                    if (mCanClimb && mInputSystem.VerticalInput != 0)
                     {
                         mFSM.ChangeState(States.Climb);
                     }
@@ -43,8 +45,8 @@ namespace HYH
                 })
                 .OnUpdate(() =>
                 {
-                    var verticalMovement = Input.GetAxis("Vertical");
-                    var horizontalMovement = Input.GetAxis("Horizontal");
+                    var verticalMovement = mInputSystem.VerticalInput;
+                    var horizontalMovement = mInputSystem.HorizontalInput;
 
                     rigidbody.velocity = new Vector2(horizontalMovement, verticalMovement) * 5;
                 });

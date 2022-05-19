@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8288276498265896391}
   - component: {fileID: 7023485164395587279}
   - component: {fileID: 7023485164395587278}
+  - component: {fileID: 4966563815520262235}
+  - component: {fileID: 592495348791473222}
   m_Layer: 9
   m_Name: AppleV1
   m_TagString: Untagged
@@ -78,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b2861236b640424fb6977e1f8aebccf, type: 3}
-  m_Color: {r: 1, g: 0.023584902, b: 0.023584902, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c1d01b71574f12b44bb3c801a1d1cc01, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -168,6 +170,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 592495348791473222}
+        m_TargetAssemblyTypeName: HYH.BonfireRuleUnlockedCondition, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7023485164395587279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +206,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f40284d1faa99b4885042b80c42d1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4966563815520262235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8288276498265896388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a55695329068dd4ea890850033c3a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHpAdd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &592495348791473222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8288276498265896388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7a75943fcf974418b1aaf11f69ffad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: AddHPEvery10ApplesRule
+  IsUnlocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4966563815520262235}
+        m_TargetAssemblyTypeName: HYH.AddAppleCount4RecoverHP, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8288276498725337354
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class Spike : MonoBehaviour
+namespace HYH
 {
-    private void OnTriggerEnter2D(Collider2D col)
+    public class Spike : MonoBehaviour
     {
-        if(col.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            var hit = col.GetComponent<PlayerHit>();
-            hit.Hit();
+            if (col.CompareTag("Player"))
+            {
+                var hit = col.GetComponent<PlayerHit>();
+                hit.Hit();
+            }
         }
     }
 }

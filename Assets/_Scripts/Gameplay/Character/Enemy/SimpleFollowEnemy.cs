@@ -15,6 +15,7 @@ namespace HYH
         }
 
         [SerializeField] float followSpeed = 7;
+        [SerializeField] float WarningTime = 0.15f;
         [SerializeField] Trigger2D GroundCheck;
         [SerializeField] Trigger2D ForwardCheck;
         [SerializeField] Trigger2D FallCheck;
@@ -62,9 +63,15 @@ namespace HYH
 
             AttackCheck.OnTriggerEnterWithCollider.AddListener((collider) =>
             {
-                collider.GetComponent<PlayerHit>().Hit();
 
-                AttackPhysicsEffect(transform, collider.transform);
+                var playerHit = collider.GetComponent<PlayerHit>();
+
+                if (playerHit.CanHit)
+                {
+                    playerHit.Hit();
+                    AttackPhysicsEffect(transform, collider.transform);
+                }
+
             });
 
             WarningCheck.OnTriggerEnter.AddListener(() =>
@@ -94,7 +101,7 @@ namespace HYH
                 })
                 .OnUpdate(() =>
                 {
-                    if (stateDuration > 2f)
+                    if (stateDuration > WarningTime)
                     {
                         mFSM.ChangeState(States.Following);
                     }
