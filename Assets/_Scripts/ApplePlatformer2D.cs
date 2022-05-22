@@ -13,13 +13,40 @@ namespace HYH
         public static EasyEvent OnOpenBonfireUI = new EasyEvent();
         public static EasyEvent<string> OnBonfireRuleUnlocked = new EasyEvent<string>();
 
-        private static bool mIsGameOver = false;
-        public static bool IsGameOver
+        public static bool IsGameOver { get; set; } = false;
+        /// <summary>
+        /// 对外提供用于查询
+        /// </summary>
+        /// <value></value>
+        public static bool IsGamePause { get; set; } = false;
+
+        /// <summary>
+        /// 暂停之前的时间缩放缓存
+        /// </summary>
+        private static float mCachedTimeScale;
+
+        /// <summary>
+        /// 暂停时间
+        /// </summary>
+        public static void GamePause()
         {
-            get => mIsGameOver;
-            set
+            if (!IsGamePause)
             {
-                mIsGameOver = value;
+                mCachedTimeScale = Time.timeScale;
+                Time.timeScale = 0;
+                IsGamePause = true;
+            }
+        }
+
+        /// <summary>
+        /// 恢复时间
+        /// </summary>
+        public static void GameResume()
+        {
+            if (IsGamePause)
+            {
+                Time.timeScale = mCachedTimeScale;
+                IsGamePause = false;
             }
         }
 

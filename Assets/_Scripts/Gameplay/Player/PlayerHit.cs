@@ -7,7 +7,7 @@ namespace HYH
 {
     public class PlayerHit : MonoBehaviour
     {
-        [SerializeField] UnityEvent OnHit = new UnityEvent();
+        public UnityEvent OnHit = new UnityEvent();
 
         private float mLastHitTime = 0;
 

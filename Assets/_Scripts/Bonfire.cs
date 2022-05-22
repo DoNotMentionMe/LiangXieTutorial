@@ -17,6 +17,28 @@ namespace HYH
         private bool mOpenBonfireUI = false;
 
         private IBonfireSystem mBonfireSystem;
+
+        /// <summary>
+        /// 对外提供一个打开UI的方法
+        /// </summary>
+        public void OpenUI()
+        {
+            ApplePlatformer2D.GamePause();
+            mOpenBonfireUI = true;
+            ApplePlatformer2D.OnOpenBonfireUI.Trigger();
+            AudioSystem.PlayerUIFeedback();
+        }
+
+        /// <summary>
+        /// 对外提供一个关闭UI的方法
+        /// </summary>
+        public void CloseUI()
+        {
+            ApplePlatformer2D.GameResume();
+            mOpenBonfireUI = false;
+            AudioSystem.PlayerUIFeedback();
+        }
+
         private void Awake()
         {
             mBonfireSystem = ApplePlatformer2D.Interface.GetSystem<IBonfireSystem>();
@@ -51,17 +73,14 @@ namespace HYH
             {
                 if (Input.GetKeyDown(KeyCode.W))
                 {
-                    mOpenBonfireUI = true;
-                    ApplePlatformer2D.OnOpenBonfireUI.Trigger();
-                    AudioSystem.PlayerUIFeedback();
+                    OpenUI();
                 }
             }
             else if (mOpenBonfireUI)
             {
                 if (Input.GetKeyDown(KeyCode.W))
                 {
-                    mOpenBonfireUI = false;
-                    AudioSystem.PlayerUIFeedback();
+                    CloseUI();
                 }
             }
 
@@ -118,7 +137,7 @@ namespace HYH
 
                         if (GUILayout.Button("x", GUILayout.Width(20)))
                         {
-                            mOpenBonfireUI = false;
+                            CloseUI();
                         }
 
                         GUILayout.EndHorizontal();
